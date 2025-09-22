@@ -1,0 +1,12 @@
+type Wallet @entity {
+  id: ID! # vault_owner
+  vault: Bytes! # address
+  owner: Bytes! # address
+  deposited: BigInt!
+  withdrawn: BigInt!
+}
+
+type Variable @entity {
+  id: ID!
+  value: BigInt!
+}
