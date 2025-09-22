@@ -1,4 +1,4 @@
-type Wallet @entity {
+type Wallet @entity(immutable: false) {
   id: ID! # vault_owner
   vault: Bytes! # address
   owner: Bytes! # address
@@ -6,7 +6,7 @@ type Wallet @entity {
   withdrawn: BigInt!
 }
 
-type Variable @entity {
+type Variable @entity(immutable: false) {
   id: ID!
   value: BigInt!
 }
