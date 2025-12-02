@@ -68,7 +68,7 @@ export function handleFeeCharged(event: FeeCharged): void {
 }
 
 function getWithdrawFeePercent(): BigInt {
-  const contractAddress = Address.fromString('0xafA9ed53c33bbD8DE300481ce150dB3D35738F9D');
+  const contractAddress = Address.fromString('0x6C7013b3596623d146781c90b4Ee182331Af6148');
   const contract = Rebalancer.bind(contractAddress);
   const withdrawFeePercent = contract.withdrawFeePercent();
   return withdrawFeePercent;
