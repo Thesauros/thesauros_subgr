@@ -6,11 +6,11 @@ schema:
 dataSources:
   - name: USDCRebalancer
     kind: ethereum
-    network: base
+    network: arbitrum-one
     source:
-      address: '0x6C7013b3596623d146781c90b4Ee182331Af6148'
+      address: "0x9D943b1F93A6a931FB2E0E0De1D1B4F3e2A1A72D"
       abi: Rebalancer
-      startBlock: 38731883 
+      startBlock: 401575059
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7

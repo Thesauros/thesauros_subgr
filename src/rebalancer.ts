@@ -39,7 +39,7 @@ export function handleWithdraw(event: Withdraw): void {
 
   withdrawFeePercentIdVariable.value = getWithdrawFeePercent();
 
-  if (event.block.number <= BigInt.fromI32(35882448 )) {
+  if (event.block.number <= BigInt.fromI32(194121173)) {
     const assetsAfterFee = event.params.assets;
 
     const assetsBeforeFee = getAssetsBeforeFee(assetsAfterFee);
@@ -68,7 +68,7 @@ export function handleFeeCharged(event: FeeCharged): void {
 }
 
 function getWithdrawFeePercent(): BigInt {
-  const contractAddress = Address.fromString('0x6C7013b3596623d146781c90b4Ee182331Af6148');
+  const contractAddress = Address.fromString('0x57C10bd3fdB2849384dDe954f63d37DfAD9d7d70');
   const contract = Rebalancer.bind(contractAddress);
   const withdrawFeePercent = contract.withdrawFeePercent();
   return withdrawFeePercent;

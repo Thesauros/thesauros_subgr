@@ -253,6 +253,11 @@
     "type": "error"
   },
   {
+    "inputs": [],
+    "name": "ReentrancyGuardReentrantCall",
+    "type": "error"
+  },
+  {
     "inputs": [
       {
         "internalType": "address",
@@ -287,6 +292,11 @@
   {
     "inputs": [],
     "name": "Vault__InvalidInput",
+    "type": "error"
+  },
+  {
+    "inputs": [],
+    "name": "Vault__NotWhitelisted",
     "type": "error"
   },
   {
@@ -370,6 +380,19 @@
   },
   {
     "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "rewardsDistributor",
+        "type": "address"
+      }
+    ],
+    "name": "DistributorUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
     "inputs": [],
     "name": "EIP712DomainChanged",
     "type": "event"
@@ -382,6 +405,12 @@
         "internalType": "address",
         "name": "treasury",
         "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "assets",
+        "type": "uint256"
       },
       {
         "indexed": false,
@@ -467,6 +496,25 @@
       }
     ],
     "name": "RebalanceExecuted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "RewardsTransferred",
     "type": "event"
   },
   {
@@ -606,6 +654,38 @@
     "anonymous": false,
     "inputs": [
       {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "enabled",
+        "type": "bool"
+      }
+    ],
+    "name": "WhitelistToggled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "bool",
+        "name": "isWhitelisted",
+        "type": "bool"
+      }
+    ],
+    "name": "WhitelistUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
         "indexed": true,
         "internalType": "address",
         "name": "sender",
@@ -667,6 +747,19 @@
   },
   {
     "inputs": [],
+    "name": "DEPOSITOR_ROLE",
+    "outputs": [
+      {
+        "internalType": "bytes32",
+        "name": "",
+        "type": "bytes32"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "DOMAIN_SEPARATOR",
     "outputs": [
       {
@@ -715,6 +808,19 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "addToWhitelist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -979,6 +1085,38 @@
       }
     ],
     "name": "hasRole",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "isWhitelistEnabled",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "isWhitelisted",
     "outputs": [
       {
         "internalType": "bool",
@@ -1306,6 +1444,11 @@
         "internalType": "uint256",
         "name": "fee",
         "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "activateToProvider",
+        "type": "bool"
       }
     ],
     "name": "rebalance",
@@ -1345,6 +1488,19 @@
         "type": "uint256"
       }
     ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
+    ],
+    "name": "removeFromWhitelist",
+    "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
@@ -1497,6 +1653,19 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "bool",
+        "name": "enabled",
+        "type": "bool"
+      }
+    ],
+    "name": "toggleWhitelist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "totalAssets",
     "outputs": [
@@ -1599,6 +1768,19 @@
     "name": "unpause",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "whitelistEnabled",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {

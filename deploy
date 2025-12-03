@@ -3,8 +3,10 @@ Add file to IPFS build/schema.graphql
   Add file to IPFS build/USDCRebalancer/Rebalancer.json
                 .. QmeH8JkfsYPUUujDahxP5A32EnsBSPqMNPBDRFnkacpyob
   Add file to IPFS build/USDCRebalancer/USDCRebalancer.wasm
-                .. QmRKvbVQTs2Ko8WiGAaSAqhgn4z9P3faTcRGyZPuChYazE
+                .. QmPju883AbbGZMKu41DKD9Ssjz4H7cm5vZt59fJiPq9smg
 
-Build completed: QmNRBpGbsGsGdchThmnkJPcMvtqasrSTfx8VGSbWyNanG1
+Build completed: QmPZwMeCt14opiGmqQ9PtyjmfoLDSN9QTptHwaoKFHjutL
 
-Subgraph endpoints:https://api.studio.thegraph.com/query/121253/base-usdc/0.1.0
+Deployed to https://thegraph.com/studio/subgraph/new-stage-usdc
+
+Subgraph endpoints: https://api.studio.thegraph.com/query/121270/new-stage-usdc/1.2.0
